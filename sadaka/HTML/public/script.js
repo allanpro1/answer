@@ -100,15 +100,14 @@ function read_posts() {
         // inser row after the last index always
         newRow = table_ref.insertRow(-1);
 
-        //  INSTRUCT THE JS ON HOW TO FILL IN THE ROW
-        //  key names that we used wheninputing in the db iin upload function
+
         newRow.innerHTML = `<tr> 
        
          <td> ${product["heading"]}</td>
          <td><img src="${product['item_image']}" height=50></td>
          <td>${product["main"]}</td>
          <td>          
-           <button class="btn" onClick="delete_itens('${doc.id}')">Delete</button>
+           <button class="btn" onClick="delete_post('${doc.id}')">Delete</button>
          </td>
          <td>          
          <button class="btn" onClick="edit_itens('${doc.id}')">Edit </button>
@@ -170,6 +169,69 @@ function post_ad(){
       });
   });
 }
+
+
+
+
+// populating Ads table
+function read_ads() {
+
+
+  db.collection("advertisemnts")
+
+    .onSnapshot((querySnapshot) => {
+
+      querySnapshot.forEach((doc) => {
+        product = doc.data();
+        // regrence to your table
+        table_ref = document.getElementById('ads_table').getElementsByTagName('tbody')[0];
+        // inser row after the last index always
+        newRow = table_ref.insertRow(-1);
+
+
+        newRow.innerHTML = `<tr> 
+       
+         <td> ${product["caption"]}</td>
+         <td><img src="${product['item_image']}" height=50></td>
+         <td>          
+           <button class="btn" onClick="delete_items('${doc.id}')">Delete</button>
+         </td>
+         <td>          
+         <button class="btn" onClick="edit_itens('${doc.id}')">Edit </button>
+       </td>
+        </tr>`
+
+
+      });
+    });
+}
+
+
+// delete adverts
+function delete_items(id) {
+  db.collection("Products").doc(id).delete().then(() => {
+    console.log("Document successfully deleted!");
+  }).catch((error) => {
+    console.error("Error removing document: ", error);
+  });
+
+}
+
+
+// delete posts
+function delete_post(id) {
+  db.collection("Products").doc(id).delete().then(() => {
+    console.log("Document successfully deleted!");
+  }).catch((error) => {
+    console.error("Error removing document: ", error);
+  });
+
+}
+
+
+
+
+
 
 
 

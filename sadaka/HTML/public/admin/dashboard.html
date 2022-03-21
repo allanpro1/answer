@@ -22,7 +22,7 @@
         <div class="post_news" style="float: left; margin-left: 10%;"><br><br><br><br>
             <input type="text" placeholder="News Heading" id="head">
             <br><br><br>
-            <input type="text-area" placeholder="main article" id="main" >
+            <input type="text-area" placeholder="main article" id="main">
             <br><br><br>
            <input type="file" id="pic">
            <br><br><br>
@@ -51,6 +51,7 @@
 
 
     </div>
+
     <div style="margin-top: 40%;">
         <h1>post Advertisement</h1>
         <div class="post_news" style="float: left; margin-left: 10%;"><br><br><br><br>
@@ -65,7 +66,7 @@
         </div>
 
 
-        <div class="posts_table">
+        <div class="posts_table" id="ads_table">
             <table id="posts_table" border="1">
                 <thead>
                     <th>advert Caption</th>
@@ -73,9 +74,14 @@
                     <th colspan="2"> Action</th>
 
                 </thead>
+                <tbody>
+
+                </tbody>
 
             </table>
-        </div>
+
+            <script>read_ads()</script>
+       </div>
 
     </div>
    
