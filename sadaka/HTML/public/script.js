@@ -46,6 +46,7 @@ function upload_to_db(imageURL) {
   db.collection("Posts").add({
     heading:document.getElementById('head').value,
     main:document.getElementById('main').value,
+    postDate:document.getElementById('dateid').value,
      item_image: imageURL,
   
   })
@@ -106,12 +107,14 @@ function read_posts() {
          <td> ${product["heading"]}</td>
          <td><img src="${product['item_image']}" height=50></td>
          <td>${product["main"]}</td>
-         <td>          
+         <td>                  
            <button class="btn" onClick="delete_post('${doc.id}')">Delete</button>
          </td>
          <td>          
          <button class="btn" onClick="edit_itens('${doc.id}')">Edit </button>
        </td>
+       <td>${product["postDate"]}</td>
+         <td>  
         </tr>`
 
 
@@ -121,6 +124,45 @@ function read_posts() {
 
 
 
+
+// reading postst 
+function display_posts() {
+  db.collection("Posts")
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        product = doc.data();
+        div_ref = document.getElementById('posts');
+
+        div_ref.innerHTML += `<img src="${product['item_image']} alt="image" class="cause-img"style="height: 200%; width: 200%;">
+
+        <div class="progress cause-progress">
+          <div>
+          ${product['postDate']} 
+          
+            </div>
+        </div>
+
+        <h1 class="cause-title"><a href="#">${product["heading"]} </a></h1>
+        <div class="cause-details">
+        ${product["main"]}
+        </div>
+
+        <div class="btn-holder text-center">
+
+          <a href="#" class="btn btn-primary"> Read more</a>
+          
+        </div>
+        <hr>
+        <br>
+
+
+    `
+          ;
+
+      });
+    })
+
+}
 
 
 
@@ -173,6 +215,7 @@ function post_ad(){
 
 
 
+
 // populating Ads table
 function read_ads() {
 
@@ -209,7 +252,7 @@ function read_ads() {
 
 // delete adverts
 function delete_items(id) {
-  db.collection("Products").doc(id).delete().then(() => {
+  db.collection("advertisemnts").doc(id).delete().then(() => {
     console.log("Document successfully deleted!");
   }).catch((error) => {
     console.error("Error removing document: ", error);
@@ -220,7 +263,7 @@ function delete_items(id) {
 
 // delete posts
 function delete_post(id) {
-  db.collection("Products").doc(id).delete().then(() => {
+  db.collection("Posts").doc(id).delete().then(() => {
     console.log("Document successfully deleted!");
   }).catch((error) => {
     console.error("Error removing document: ", error);

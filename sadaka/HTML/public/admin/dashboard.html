@@ -27,8 +27,12 @@
            <input type="file" id="pic">
            <br><br><br>
 
-           <button onclick="post_news()" type="submit" class="button-three" >Post</button>
            <br><br><br>
+           <input type="date" id="dateid" required>
+           <br><br><br>
+           <button onclick="post_news()" type="submit" class="button-three" >Post</button>
+
+
 
         </div>
         <div class="posts_table">
@@ -36,8 +40,10 @@
                 <thead>
                     <th>Head</th>
                     <th>Photos</th>
-                    <th>article</th>
+                    <th>Article</th>
                     <th colspan="2"> Action</th>
+                    <th>Date</th>
+
 
                 </thead>
                 <tbody>
