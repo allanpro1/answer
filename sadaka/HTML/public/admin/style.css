@@ -1,0 +1,87 @@
+.body{
+    background-color: burlywood;
+}
+input{
+    height: 35px;
+    width: 290px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-width: 2px;
+    border-color: green;
+    box-shadow: 90px;
+    outline: none;
+}
+
+
+.button-three {
+    position: relative;
+    background-color: green;
+    border: none;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.button-three:hover{
+   background:#fff;
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   color:#000;
+}
+
+.button-three:after {
+    content: "";
+    background: green;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button-three:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+/* for the table */
+table {
+        
+    width: 60%;
+   
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+  }
+  
+ table td, th {
+    /* border: 1px solid #0a0000; */
+    text-align: left;
+    padding: 8px;
+  }
+  table th{
+    background-color: rgb(3, 65, 145);
+  color: white;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #928f8f;
+  }
+ table tr:nth-child(odd) {
+    background-color: #6897fc;
+  }
+  
+
+  .posts_table{
+      float: right;
+      margin-right: 10%;
+      margin-top: 5%;
+  }
