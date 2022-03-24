@@ -133,7 +133,7 @@ function display_posts() {
         product = doc.data();
         div_ref = document.getElementById('posts');
 
-        div_ref.innerHTML += `<img src="${product['item_image']} alt="image" class="cause-img"style="height: 200%; width: 200%;">
+        div_ref.innerHTML += `<img src="${product['item_image']} alt="image" class="cause-img"style="height: 100%; width:100%;">
 
         <div class="progress cause-progress">
           <div>
