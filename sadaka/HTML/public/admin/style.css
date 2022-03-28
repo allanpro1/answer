@@ -55,6 +55,7 @@ input{
 
 /* for the table */
 table {
+  overflow-x:auto;
         
     width: 60%;
    

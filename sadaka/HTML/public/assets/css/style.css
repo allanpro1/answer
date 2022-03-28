@@ -277,7 +277,7 @@ a:hover, a:focus, a:active {
   border-radius: 3px;
 }
 .cause .cause-progress .progress-bar {
-  background: #1f76bd;
+  background: white;
   box-shadow: none;
 }
 .cause .cause-img {

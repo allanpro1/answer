@@ -1,42 +1,58 @@
-  // Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs you need
 //   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
-  // TODO: Add SDKs for Firebase Posts that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase Posts that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAuKWPEzY5qWnRPR1kofnIaWxILIt2oGXI",
-    authDomain: "answerzcry.firebaseapp.com",
-    projectId: "answerzcry",
-    storageBucket: "answerzcry.appspot.com",
-    messagingSenderId: "420113336306",
-    appId: "1:420113336306:web:a3877f53088f9e259b4d6b"
-  };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAuKWPEzY5qWnRPR1kofnIaWxILIt2oGXI",
+  authDomain: "answerzcry.firebaseapp.com",
+  projectId: "answerzcry",
+  storageBucket: "answerzcry.appspot.com",
+  messagingSenderId: "420113336306",
+  appId: "1:420113336306:web:a3877f53088f9e259b4d6b"
+};
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 auth = firebase.auth();
 db = firebase.firestore();
 
 // login
-function login(){
-    email = document.getElementById('mail').value;
-    password = document.getElementById('pass').value;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    window.location.href ="dashboard.html";
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    alert("errorMessage")
-    window.location.href="about.html";
-  });
+function login() {
+  email = document.getElementById('mail').value;
+  password = document.getElementById('pass').value;
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      window.location.href = "dashboard.html";
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert("errorMessage")
+      window.location.href = "about.html";
+    });
 }
+
+
+// state observer to prevsent non admins  fron accessing the dashboard
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    uid = user.uid;
+    console.log(uid)
+    // User is signed in.
+  } else {
+    if (window.location.pathname == "/admin/dashboard.html") {
+
+      window.location.href = "../index.html";
+    }
+    // No user is signed in.
+  }
+});
 
 
 // upload post 
@@ -44,11 +60,11 @@ function login(){
 function upload_to_db(imageURL) {
 
   db.collection("Posts").add({
-    heading:document.getElementById('head').value,
-    main:document.getElementById('main').value,
-    postDate:document.getElementById('dateid').value,
-     item_image: imageURL,
-  
+    heading: document.getElementById('head').value,
+    main: document.getElementById('main').value,
+    postDate: document.getElementById('dateid').value,
+    item_image: imageURL,
+
   })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
@@ -62,26 +78,26 @@ function upload_to_db(imageURL) {
 }
 
 
-function post_news(){
+function post_news() {
   var file = document.getElementById('pic').files[0]
 
   var storageRef = firebase.storage().ref(file.name);
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
-      var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-      console.log(percentage + "%");
+    var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log(percentage + "%");
 
   }, function error(err) {
     var errorCode = error.code;
     var errorMessage = error.message;
-      console.log("failed to upload" + errorMessage);
+    console.log("failed to upload" + errorMessage);
 
-  },function complete() {
-      console.log("image uploaded");
-      task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          // do logic with downloadURL
-          upload_to_db(downloadURL);
-      });
+  }, function complete() {
+    console.log("image uploaded");
+    task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+      // do logic with downloadURL
+      upload_to_db(downloadURL);
+    });
   });
 }
 
@@ -172,10 +188,10 @@ function display_posts() {
 function upload_to_db_ad(imageURL) {
 
   db.collection("advertisemnts").add({
-    caption:document.getElementById('caption').value,
+    caption: document.getElementById('caption').value,
     // main:document.getElementById('main').value,
-     item_image: imageURL,
-  
+    item_image: imageURL,
+
   })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
@@ -189,26 +205,26 @@ function upload_to_db_ad(imageURL) {
 }
 
 
-function post_ad(){
+function post_ad() {
   var file = document.getElementById('ad_pic').files[0]
 
   var storageRef = firebase.storage().ref(file.name);
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
-      var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-      console.log(percentage + "%");
+    var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log(percentage + "%");
 
   }, function error(err) {
     var errorCode = error.code;
     var errorMessage = error.message;
-      console.log("failed to upload" + errorMessage);
+    console.log("failed to upload" + errorMessage);
 
-  },function complete() {
-      console.log("image uploaded");
-      task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          // do logic with downloadURL
-          upload_to_db_ad(downloadURL);
-      });
+  }, function complete() {
+    console.log("image uploaded");
+    task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+      // do logic with downloadURL
+      upload_to_db_ad(downloadURL);
+    });
   });
 }
 
@@ -269,6 +285,42 @@ function delete_post(id) {
     console.error("Error removing document: ", error);
   });
 
+}
+
+
+// Flutterwave
+function donate() {
+  if (document.getElementById('form-donate').checkValidity()) {
+    return
+  }
+
+  FlutterwaveCheckout({
+    public_key: "FLWPUBK-fe9c6680efd0ded2fa586ccad267ecec-X",
+    tx_ref: "hey",
+    amount: document.getElementById('amount').value,
+    currency: document.getElementById('currency').value,
+    country: document.getElementById('country').value,
+    payment_options: "mobilemoneyuganda",
+    redirect_url: "https://answerthecry.org/index.html",
+
+    customer: {
+      email: document.getElementById('email').value,
+      // phone_number: "",
+      // name: user.displayName,
+    },
+    callback: function (data) {
+      console.log(data);
+      alert("oi io");
+    },
+    onclose: function () {
+      // close modal
+    },
+    customizations: {
+      title: "Answer The Cry",
+      description: "Donate " + 90 + " To Answer the cry",
+      logo: "https://answerthecry.org/assets/images/logo.png",
+    },
+  });
 }
 
 
