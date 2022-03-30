@@ -266,6 +266,29 @@ function read_ads() {
 }
 
 
+
+// reading advertisement
+function display_ads() {
+  db.collection("advertisemnts")
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        product = doc.data();
+        div_ref = document.getElementById('show_ads');
+
+        div_ref.innerHTML += `  <div class="mySlides fade">
+        <img src="${product['item_image']}" style="width:100%">
+        <div class="text">${product["caption"]} </div>
+      </div>
+
+    `
+          ;
+
+      });
+    })
+
+}
+
+
 // delete adverts
 function delete_items(id) {
   db.collection("advertisemnts").doc(id).delete().then(() => {
@@ -317,7 +340,7 @@ function donate() {
     },
     customizations: {
       title: "Answer The Cry",
-      description: "Donate " + 90 + " To Answer the cry",
+      description: "Donate " + amount + " To Answer the cry",
       logo: "https://answerthecry.org/assets/images/logo.png",
     },
   });
