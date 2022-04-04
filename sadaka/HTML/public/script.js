@@ -313,9 +313,9 @@ function delete_post(id) {
 
 // Flutterwave
 function donate() {
-  if (document.getElementById('form-donate').checkValidity()) {
-    return
-  }
+  // if (document.getElementById('form-donate').checkValidity()) {
+  //   return
+  // }
 
   FlutterwaveCheckout({
     public_key: "FLWPUBK-fe9c6680efd0ded2fa586ccad267ecec-X",

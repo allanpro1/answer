@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
-        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script> 
-               <script src="script.js"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8052840628588100"
-     crossorigin="anonymous"></script>
-  
         <meta charset="utf-8">
-        <title>Posts|  Answer The Cry </title>
+        <title>Contact |  Answer The Cry </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,12 +13,8 @@
         <!-- Bootsrap -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-
         <!-- Font awesome -->
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-        <!-- PrettyPhoto -->
-        <link rel="stylesheet" href="assets/css/prettyPhoto.css">
 
         <!-- Template main Css -->
         <link rel="stylesheet" href="assets/css/style.css">
@@ -83,7 +72,7 @@
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 
-                    <span class="sr-only"></span>
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -100,13 +89,18 @@
 
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
-                    <li><a class="is-active" href="#">POSTS</a>
+                    <li class="has-child"><a href="#">CAUSES</a>
 
-                           </li>
-                                        <li><a href="donate.html">DONATE</a></li>
+                      <ul class="submenu">
+                         <li class="submenu-item"><a href="causes.html">Causes list </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                      </ul>
 
-
-                    <li><a href="#">CONTACT</a></li>
+                    </li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a class="is-active"  href="contact.html">CONTACT</a></li>
 
                   </ul>
 
@@ -126,44 +120,70 @@
 
 		<div class="container zoomIn animated">
 			
-			<h1 class="page-title">Our Posts<span class="title-under"></span></h1>
+			<h1 class="page-title">THE STORY OF MUKISA JOSIAH <span class="title-under"></span></h1>
 			<p class="page-description">
-				Be informed about what is happening within The organisation.
-			</p>
+            The story about mr 	MUKISA JOSIAH		</p>
 			
 		</div>
 
 	</div>
 
-	<div class="main-container">
+	<div class="main-container fadeIn animated">
 
-		<div class="our-causes fadeIn animated">
+		<div class="container">
 
-	        <div class="container">
+			<div class="row">
 
-	            <h2 class="title-style-1">News!! <span class="title-under"></span></h2>
+				<div class="col-md-7 col-sm-12 col-form">
 
-	            <div class="row">
+					<h2 class="title-style-2">About MUKISA JOSIAH <span class="title-under"></span></h2>
 
-	      				
-		                <div class="col-md-3 col-sm-6" id="posts">
+					
+				</div>
 
-		                    <script>display_posts()</script>
+				<div class="col-md-4 col-md-offset-1 col-contact">
 
-		                 </div> <!-- /.cause -->
-		             
-                         </div>
-		                
-	            </div>
+					<h2 class="title-style-2">   <span class="title-under"></span></h2>
+					<p> This is
+						<b> MUKISA JOSIAH.</b> He was born 23 years ago with <b>Celebral palsy condition.</b>
 
-	         </div>
-	        
-	    </div> <!-- /.our-causes -->
+                        He lives with a grandmother  in Uganda- kampala suburbs having lost both parents.
+                        
+                        Currently,<b>Answer The Cry</b> is mobilising some resources to secure 
+                        <ol>
+                       <li>A wheel chair </li> 
+                        <li>aAphysiotherapist</li> <br>
+                        Plus necessities of life especially food and decent shelter.
+                    </ol>
+                        We are God's hand!!Please join us to put a smile on his face.
+					</p>
+                    <div class="reasons-col animate-onscroll fadeIn">
+                        <img src="assets/images/reasons/muki.jpg" alt="Mukisa After spending time with us">
+                        <br><br><br><br>
 
+                        <img src="assets/images/reasons/res2.jpg" alt="Mukisa After spending time with us">
+                        </div>
+
+					<div class="contact-items">
+
+					</div>
+
+					
+					
+				</div>
+
+			</div> <!-- /.row -->
+
+
+		</div>
 		
 
 
-	</div> <!-- /.main-container  -->
+	</div>
+
+	<!-- <div id="contact-map" class="contact-map"> -->
+		
+	</div>
 
 
     <footer class="main-footer">
@@ -203,7 +223,7 @@
 
                         <div class="footer-col">
 
-                            <h4 class="footer-title">Contact us <span class="title-under"></span></h4>
+                            <h4 class="footer-title">COntact us <span class="title-under"></span></h4>
 
                             <div class="footer-content">
 
@@ -269,91 +289,6 @@
     </footer>
 
 
-        <!-- Donate Modal -->
-    <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
-
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="donateModalLabel">DONATE NOW</h4>
-          </div>
-          <div class="modal-body">
-
-                <form class="form-donation">
-
-                        <h3 class="title-style-1 text-center">Thank you for your donation <span class="title-under"></span>  </h3>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12 ">
-                                <input type="text" class="form-control" id="amount" placeholder="AMOUNT(€)">
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="firstName" placeholder="First name*">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="lastName" placeholder="Last name*">
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="email" placeholder="Email*">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="phone" placeholder="Phone">
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <input type="text" class="form-control" name="address" placeholder="Address">
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <textarea cols="30" rows="4" class="form-control" name="note" placeholder="Additional note"></textarea>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right" name="donateNow" >DONATE NOW</button>
-                            </div>
-
-                        </div>
-
-
-
-                       
-                    
-                </form>
-            
-          </div>
-        </div>
-      </div>
-
-    </div> <!-- /.modal -->
-
-
 
 
        
@@ -364,10 +299,6 @@
 
         <!-- Bootsrap javascript file -->
         <script src="assets/js/bootstrap.min.js"></script>
-
-        <!-- PrettyPhoto javascript file -->
-        <script src="assets/js/jquery.prettyPhoto.js"></script>
-
 
 
         <!-- Google map  -->
