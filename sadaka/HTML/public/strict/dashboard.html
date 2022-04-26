@@ -1,123 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
 
     <!-- add this for firebase torage -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script> 
-          <!-- add this for firebase torage -->
-          <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script> 
-          <meta charset="utf-8">
-          <meta property="og:image" content="https://answerzcry.web.app/assets/images/logo.png">
-          <!-- <meta property="og:image" content=”%PUBLIC_URL%/Olympic.jpg” /> -->
-          <!-- <link rel="icon" href="assets/images/logo.png"> -->
-       
-          <!-- Fonts -->
-          <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-          <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
-  
-          <!-- Bootsrap -->
-          <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  
-          <!-- Font awesome -->
-          <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-  
-          <!-- Owl carousel -->
-          <link rel="stylesheet" href="assets/css/owl.carousel.css">
-  
-          <!-- Template main Css -->
-          <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-          
-          <!-- Modernizr -->
-          <script src="assets/js/modernizr-2.6.2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+    <!-- add this for firebase torage -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+    <meta charset="utf-8" />
+    <meta
+      property="og:image"
+      content="https://answerzcry.web.app/assets/images/logo.png"
+    />
+    <!-- <meta property="og:image" content=”%PUBLIC_URL%/Olympic.jpg” /> -->
+    <!-- <link rel="icon" href="assets/images/logo.png"> -->
+
+    <!-- Fonts -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Dosis:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+
+    <!-- Template main Css -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+    <!-- Modernizr -->
+    <script src="assets/js/modernizr-2.6.2.min.js"></script>
 
     <script src="../script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin DAshboard</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="news">
-        <h1>
-            Post News
-        </h1>
-        <div class="post_news" style="float: left; margin-left: 10%;"><br><br><br><br>
-            <input type="text" placeholder="News Heading" id="head">
-            <br><br><br>
-            <!-- <input type="t" placeholder="main article" id="main"> -->
-            <textarea placeholder="Main article area . Write anything you wanna tell them and then choose an image" id="main" style="height: 100px;width: 190px;"></textarea>
-            <br><br><br>
-           <input type="file" id="pic">
-           <br><br><br>
+      <h1>Post News</h1>
+      <div class="post_news" style="float: left; margin-left: 10%">
+        <br /><br /><br /><br />
+        <input type="text" placeholder="News Heading" id="head" />
+        <br /><br /><br />
+        <!-- <input type="t" placeholder="main article" id="main"> -->
+        <textarea
+          placeholder="Main article area . Write anything you wanna tell them and then choose an image"
+          id="main"
+          style="height: 100px; width: 190px"
+        ></textarea>
+        <br /><br /><br />
+        <input type="file" id="pic" />
+        <br /><br /><br />
 
-           <br><br><br>
-           <input type="date" id="dateid" required>
-           <br><br><br>
-           <button onclick="post_news()" type="submit" class="button-three" >Post</button>
-
-
-
-        </div>
-        <div class="posts_table">
-            <table id="posts_table" border="1">
-                <thead>
-                    <th>Head</th>
-                    <th>Photos</th>
-                    <th>Article</th>
-                    <th colspan="2"> Action</th>
-                    <th>Date</th>
-
-
-                </thead>
-                <tbody>
-                    
-                </tbody>
-
-            </table>
-            <script>read_posts()</script>
-        </div>
-
-
-
+        <br /><br /><br />
+        <input type="date" id="dateid" required />
+        <br /><br /><br />
+        <button onclick="post_news()" type="submit" class="button-three">
+          Post
+        </button>
+      </div>
+      <div class="posts_table">
+        <table id="posts_table" border="1">
+          <thead>
+            <th>Head</th>
+            <th>Photos</th>
+            <th>Article</th>
+            <th colspan="2">Action</th>
+            <th>Date</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <script>
+          read_posts();
+        </script>
+      </div>
     </div>
 
-    <div style="margin-top: 40%;">
-        <h1>post Advertisement</h1>
-        <div class="post_news" style="float: left; margin-left: 10%;"><br><br><br><br>
-            <input type="text" placeholder="advert caption" id="caption">
-            <br><br><br>
-            <input type="file" id="ad_pic">
-           <br><br><br>
+    <div style="margin-top: 40%">
+      <h1>post Advertisement</h1>
+      <div class="post_news" style="float: left; margin-left: 10%">
+        <br /><br /><br /><br />
+        <input type="text" placeholder="advert caption" id="caption" />
+        <br /><br /><br />
+        <input type="file" id="ad_pic" />
+        <br /><br /><br />
 
-           <button type="submit" class="button-three" onclick;="post_ad()">Post Ad</button>
-           <br><br><br>
+        <button type="submit" class="button-three" onclick="post_ad()">
+          Post Ad
+        </button>
+        <br /><br /><br />
+      </div>
 
-        </div>
+      <div class="posts_table" id="ads_table">
+        <table id="posts_table" border="1">
+          <thead>
+            <th>advert Caption</th>
+            <th>photo</th>
+            <th colspan="2">Action</th>
+          </thead>
+          <tbody></tbody>
+        </table>
 
-
-        <div class="posts_table" id="ads_table">
-            <table id="posts_table" border="1">
-                <thead>
-                    <th>advert Caption</th>
-                    <th>photo</th>
-                    <th colspan="2"> Action</th>
-
-                </thead>
-                <tbody>
-
-                </tbody>
-
-            </table>
-
-            <script>read_ads()</script>
-       </div>
-
+        <script>
+          read_ads();
+        </script>
+      </div>
     </div>
-   
-    
-</body>
+  </body>
 </html>
