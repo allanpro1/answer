@@ -33,7 +33,7 @@ function login() {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert("errorMessage")
+      alert(errorMessage)
       window.location.href = "about.html";
     });
 }
@@ -46,7 +46,7 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log(uid)
     // User is signed in.
   } else {
-    if (window.location.pathname == "/admin/dashboard.html") {
+    if (window.location.pathname == "/dashboard.html") {
 
       window.location.href = "../index.html";
     }
@@ -273,19 +273,47 @@ function display_ads() {
     .onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         product = doc.data();
-        div_ref = document.getElementById('show_ads');
+        div_ref = document.getElementById('slide_showBucket');
+        console.log(product);
+        div_ref.innerHTML += `
+       <div class="mySlides fade">
+  <img src="${product.item_image}" style="width:100%">
+  <div class="text">${product.caption}</div>
+</div>
+       `
+        document.getElementById('dots').innerHTML += `
+  <span class="dot"></span> 
 
-        div_ref.innerHTML += `  <div class="mySlides fade">
-        <img src="${product['item_image']}" style="width:100%">
-        <div class="text">${product["caption"]} </div>
-      </div>
+  `
 
-    `
-          ;
 
       });
+      showSlides();
     })
 
+}
+
+
+//  slide shw function
+
+let slideIndex = 0;
+// showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+  setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
 
 
@@ -298,6 +326,9 @@ function delete_items(id) {
   });
 
 }
+
+
+
 
 
 // delete posts
