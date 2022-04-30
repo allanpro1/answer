@@ -319,7 +319,7 @@ function donate() {
   // }
 
   FlutterwaveCheckout({
-    public_key: "FLWPUBK-fe9c6680efd0ded2fa586ccad267ecec-X",
+    public_key: "FLWPUBK-1e3dcf99e333d3fbfaba8d5153660041-X",
     tx_ref: "hey",
     amount: document.getElementById("amount").value,
     currency: document.getElementById("currency").value,
